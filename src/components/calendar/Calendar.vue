@@ -2,52 +2,13 @@
   <div class="calendar-test">
     <q-tabs class="calendar-tabs" ref="fullCalendarTabs" inverted>
       <q-tab
-        name="tab-month"
-        icon="view_module"
-        :label="tabLabels.month"
-        default
-        slot="title"
-      />
-      <q-tab
         name="tab-week-component"
         icon="view_week"
         :label="tabLabels.week"
-        slot="title"
-      />
-      <q-tab
-        name="tab-days-component"
-        icon="view_column"
-        :label="tabLabels.threeDay"
-        slot="title"
-      />
-      <q-tab
-        name="tab-single-day-component"
-        icon="view_day"
-        :label="tabLabels.day"
-        slot="title"
-      />
-      <q-tab
-        name="tab-agenda"
-        icon="view_agenda"
-        :label="tabLabels.agenda"
+        default
         slot="title"
       />
 
-      <q-tab-pane name="tab-month" class="calendar-tab-pane-month">
-        <calendar-month
-          :ref="'month-' + thisRefName"
-          :start-date="workingDate"
-          :parsed-events="parsed"
-          :event-ref="eventRef"
-          :full-component-ref="eventRef"
-          :sunday-first-day-of-week="sundayFirstDayOfWeek"
-          :calendar-locale="calendarLocale"
-          :calendar-timezone="calendarTimezone"
-          :prevent-event-detail="preventEventDetail"
-          :allow-editing="allowEditing"
-
-        />
-      </q-tab-pane>
       <q-tab-pane name="tab-week-component" class="calendar-tab-pane-week">
         <calendar-multi-day
           :ref="'week-' + thisRefName"
@@ -67,65 +28,9 @@
 
         />
       </q-tab-pane>
-      <q-tab-pane name="tab-days-component" class="calendar-tab-pane-week">
-        <calendar-multi-day
-          :ref="'days-' + thisRefName"
-          :start-date="workingDate"
-          :parsed-events="parsed"
-          :num-days="3"
-          :nav-days="1"
-          :force-start-of-week="false"
-          :event-ref="eventRef"
-          :full-component-ref="eventRef"
-          :sunday-first-day-of-week="sundayFirstDayOfWeek"
-          :calendar-locale="calendarLocale"
-          :calendar-timezone="calendarTimezone"
-          :prevent-event-detail="preventEventDetail"
-          :allow-editing="allowEditing"
-          :day-display-start-hour="dayDisplayStartHour"
-
-        />
-      </q-tab-pane>
-      <q-tab-pane name="tab-single-day-component" class="calendar-tab-pane-week">
-        <calendar-multi-day
-          :ref="'day-' + thisRefName"
-          :start-date="workingDate"
-          :parsed-events="parsed"
-          :num-days="1"
-          :nav-days="1"
-          :force-start-of-week="false"
-          :event-ref="eventRef"
-          :full-component-ref="eventRef"
-          :sunday-first-day-of-week="sundayFirstDayOfWeek"
-          :calendar-locale="calendarLocale"
-          :calendar-timezone="calendarTimezone"
-          :prevent-event-detail="preventEventDetail"
-          :allow-editing="allowEditing"
-          :day-display-start-hour="dayDisplayStartHour"
-
-        />
-      </q-tab-pane>
-      <q-tab-pane name="tab-agenda" class="calendar-tab-pane-agenda">
-        <calendar-agenda
-          :ref="'agenda-' + thisRefName"
-          :start-date="workingDate"
-          :parsed-events="parsed"
-          :num-days="28"
-          :event-ref="eventRef"
-          scroll-height="300px"
-          :full-component-ref="eventRef"
-          :sunday-first-day-of-week="sundayFirstDayOfWeek"
-          :calendar-locale="calendarLocale"
-          :calendar-timezone="calendarTimezone"
-          :prevent-event-detail="preventEventDetail"
-          :allow-editing="allowEditing"
-        />
-      </q-tab-pane>
-
     </q-tabs>
   </div>
 </template>
-
 <script>
   import {
     CalendarMixin,

@@ -6,14 +6,12 @@
       :class="{
         'calendar-day-label': true,
         'calendar-cell': true,
-        'calendar-day-label-current': isCurrentDayLabel(thisDay),
-        'cursor-pointer': calendarDaysAreClickable
+        'calendar-day-label-current': isCurrentDayLabel(thisDay)
       }"
       :style="{
         'width': cellWidth,
         'max-width': cellWidth,
       }"
-      @click="handleDayClick(thisDay)"
     >
       {{ formatDate(thisDay, 'EEE') }}
       <div
@@ -74,9 +72,6 @@
     computed: {
       cellWidth: function () {
         return this.calculateDayCellWidth(this.numberOfDays)
-      },
-      calendarDaysAreClickable: function () {
-        return (this.fullComponentRef && this.fullComponentRef.length > 0)
       }
     },
     methods: {
@@ -98,11 +93,6 @@
         }
         else {
           return now.hasSame(thisDay, 'day')
-        }
-      },
-      handleDayClick: function (dateObject) {
-        if (this.fullComponentRef) {
-          this.fullMoveToDay(dateObject)
         }
       }
     },
