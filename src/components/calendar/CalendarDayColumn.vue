@@ -6,7 +6,7 @@
       :key="thisHour"
       :style="getCellStyle"
       :id="getDayHourId(eventRef, workingDate, thisHour - 1)"
-      :data-js-date="`${makeDT(workingDate).toISODate()} ${thisHour - 1}`"
+      :data-js-date="`${makeDT(workingDate).toISODate()}T${thisHour < 10 ? 0 : ''}${thisHour - 1}:00`"
     >
       <div class="calendar-day-time-content"></div>
     </div>
