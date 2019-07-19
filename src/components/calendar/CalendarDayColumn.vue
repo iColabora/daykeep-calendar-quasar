@@ -7,6 +7,7 @@
       :style="getCellStyle"
       :id="getDayHourId(eventRef, workingDate, thisHour - 1)"
       :data-js-date="`${makeDT(workingDate).toISODate()}T${(thisHour - 1) <= 9 ? 0 : ''}${thisHour - 1}:00`"
+      class="cursor-pointer bg-grey-4-hover"
     >
       <div class="calendar-day-time-content"></div>
     </div>
@@ -248,6 +249,10 @@
 
 <style lang="stylus">
   @import 'calendar.vars.styl'
+
+  .bg-grey-4-hover:hover {
+    background #e0e0e0
+  }
 
   .calendar-day
     position relative
